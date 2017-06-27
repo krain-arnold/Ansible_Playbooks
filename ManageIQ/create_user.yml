@@ -10,6 +10,9 @@
     user_url: "{{ manageiq.api_url }}/api/users"
 
   tasks:
+    - name: Dump all vars
+      action: template src=dumpall.j2 dest=/tmp/ansible.all
+      
     - name: Call to CloudForms to find href for EvmGroup-user
       uri:
         url: "{{ groups_url }}"
